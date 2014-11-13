@@ -1,0 +1,12 @@
+{
+  "name": "BDDGrams",
+  "version": "0.0.1",
+  "description": "A electronic parts database",
+  "main": "app.js",
+  "dependencies": {
+    "mongoose": "^3.8.19",
+    "express": "^4.10.2",
+    "express-mongoose": "^0.1.0",
+    "morgan": "^1.5.0"
+  }
+}
