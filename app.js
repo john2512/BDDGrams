@@ -26,6 +26,9 @@ mongoose.connect('mongodb://localhost/m101JS', function (err) {
 });*/
 
 var app = express();
+/*jslint nomen: true*/
+app.use(express.static(__dirname + '/public'));
+/*jslint nomen: false*/
 middleware(app);
 routes(app);
 

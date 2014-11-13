@@ -6,7 +6,7 @@ module.exports = function (app) {
 
   // home page
   app.get('/', function (req, res, next) {
-
+    res.render('index.html');
   });
 
   // error handlers
