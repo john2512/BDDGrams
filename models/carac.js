@@ -1,6 +1,6 @@
 /*jslint node: true, sloppy: true*/
 
-// Parts model
+// Carac model
 
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
@@ -8,19 +8,6 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 var schema = mongoose.Schema({
   _id: { type: ObjectId },
   name: { type: String, required: true, trim: true},
-  partType: { type: String, required: true, trim: true},
-  partNumber: [{
-    name: {type: String, trim: true},
-    value: {type: String, trim: true}
-  }],
-  storageLocation: [{
-    location: {type: String, trim: true},
-    quantite: {type: String, trim: true}
-  }],
-  caracs: [{
-    caracName: {type: String, trim: true},
-    value: {type: String, trim: true}
-  }],
   created: { type: Date, required: true},
   modified: {type: Date, required: true}
 });
@@ -37,4 +24,4 @@ schema.pre('save', function (next) {
   next();
 });
 
-module.exports = mongoose.model('Comment', schema);
+module.exports = mongoose.model('Carac', schema);

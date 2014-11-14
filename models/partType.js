@@ -1,13 +1,13 @@
 /*jslint node: true, sloppy: true*/
 
-// StokageLocation model
+// PartType model
 
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var schema = mongoose.Schema({
   _id: { type: ObjectId },
-  location: { type: String, required: true, trim: true},
+  name: { type: String, required: true, trim: true},
   created: { type: Date, required: true},
   modified: {type: Date, required: true}
 });
@@ -24,4 +24,4 @@ schema.pre('save', function (next) {
   next();
 });
 
-module.exports = mongoose.model('Comment', schema);
+module.exports = mongoose.model('PartType', schema);
