@@ -1,5 +1,6 @@
 /*jslint node: true, sloppy: true*/
 var errors = require('./errors');
+var stokageLocation = require('./stokageLocation');
 var mongoose = require('mongoose');
 
 module.exports = function (app) {
@@ -9,6 +10,7 @@ module.exports = function (app) {
     res.render('index.html');
   });
 
+  stokageLocation(app);
   // error handlers
   errors(app);
 };

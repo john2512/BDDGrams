@@ -9,29 +9,20 @@ var models = require('./models');
 var routes = require('./routes');
 var middleware = require('./middleware');
 
-/*
 mongoose.set('debug', true);
 
-mongoose.connect('mongodb://localhost/m101JS', function (err) {
+mongoose.connect('mongodb://localhost/BDDGrams', function (err) {
   if (err) {
     throw err;
   }
   var app = express();
+  /*jslint nomen: true*/
+  app.use(express.static(__dirname + '/public'));
+  /*jslint nomen: false*/
   middleware(app);
   routes(app);
 
   app.listen(3000, function () {
     console.log('now listening on http://localhost:3000');
   });
-});*/
-
-var app = express();
-/*jslint nomen: true*/
-app.use(express.static(__dirname + '/public'));
-/*jslint nomen: false*/
-middleware(app);
-routes(app);
-
-app.listen(3000, function () {
-  console.log('now listening on http://localhost:3000');
 });
