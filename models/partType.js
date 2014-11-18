@@ -12,7 +12,6 @@ var schema = mongoose.Schema({
   modified: {type: Date, required: true}
 });
 
-
 //Change the update whenever the methode save is call on the object
 //Created is specified if the object is new
 schema.pre('save', function (next) {
