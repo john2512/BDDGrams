@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var schema = mongoose.Schema({
-  _id: { type: ObjectId },
   name: { type: String, required: true, trim: true},
   partType: { type: String, required: true, trim: true},
   partNumber: [{
@@ -21,8 +20,8 @@ var schema = mongoose.Schema({
     caracName: {type: String, trim: true},
     value: {type: String, trim: true}
   }],
-  created: { type: Date, required: true},
-  modified: {type: Date, required: true}
+  created: { type: Date, required: false},
+  modified: {type: Date, required: false}
 });
 
 //Change the update whenever the methode save is call on the object

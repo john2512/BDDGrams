@@ -6,10 +6,9 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var schema = mongoose.Schema({
-  _id: { type: ObjectId },
   name: { type: String, required: true, trim: true},
-  created: { type: Date, required: true},
-  modified: {type: Date, required: true}
+  created: { type: Date, required: false},
+  modified: {type: Date, required: false}
 });
 
 
