@@ -1,6 +1,7 @@
 /*jslint node: true, sloppy: true*/
 var errors = require('./errors');
 var stokageLocation = require('./stokageLocation');
+var partType = require('./partType');
 var mongoose = require('mongoose');
 
 module.exports = function (app) {

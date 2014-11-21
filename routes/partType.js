@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var parts = mongoose.model('partType');
+var partType = mongoose.model('PartType');
 
 module.exports = function (app) {
 
@@ -16,9 +16,7 @@ module.exports = function (app) {
 	app.post('/partType', function(req, res, next){
 		var partTypeInst = new partType();
 		partTypeInst._id = null;
-		partTypeInst.name = res.body.name;
-		partTypeInst.created = null;
-		partTypeInst.modified =null;
+		partTypeInst.name = req.body.name;
 
 		partTypeInst.save(function (err, partType) {
       if (err) {
@@ -29,7 +27,7 @@ module.exports = function (app) {
 	});
 
 
-	app.put('/partType:_id', function(req, res, next){
+	app.put('/partType/:id', function(req, res, next){
 		var id = req.param('id');
 		query = partType.findById(id);
 
