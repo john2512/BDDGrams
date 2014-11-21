@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var parts = mongoose.model('stockagePartType');
+var parts = mongoose.model('partType');
 
 module.exports = function (app) {
 
 	app.get('/partType', function(req, res, next){
-		stockagePartType.find({}, function(err, partType){
+		partType.find({}, function(err, partType){
 			if (err){
 				return next(err);
 			}
@@ -14,7 +14,7 @@ module.exports = function (app) {
 
 
 	app.post('/partType', function(req, res, next){
-		var partTypeInst = new stockagePartType();
+		var partTypeInst = new partType();
 		partTypeInst._id = null;
 		partTypeInst.name = res.body.name;
 		partTypeInst.created = null;
@@ -31,21 +31,21 @@ module.exports = function (app) {
 
 	app.put('/partType:_id', function(req, res, next){
 		var id = req.param('id');
-		query = stockagePartType.findById(id);
+		query = partType.findById(id);
 
-		 query.exec(function (err, stockagePartType) {
+		 query.exec(function (err, partType) {
       if (err) {
         return next(err);
       }
-      if (!stockagePartType) {
+      if (!partType) {
         return next(); // 404
       }
-      stockagePartType.name = req.body.name;
-      stockagePartType.save(function (err,  stockagePartType) {
+      partType.name = req.body.name;
+      partType.save(function (err,  partType) {
         if (err) {
           return next(err);
         }
-        return res.json(stockagePartType);
+        return res.json(partType);
       });
     });
   });
@@ -54,11 +54,11 @@ module.exports = function (app) {
 	app.delete('/partType/:id', function (req, res, next) {
     var id = req.param('id');
 
-    stockagePartType.findById(id, function (err, stockagePartType) {
+    partType.findById(id, function (err, partType) {
       if (err) {
         return next(err);
       }
-      stockagePartType.remove(function (err) {
+      partType.remove(function (err) {
         if (err) {
           return next(err);
         }
