@@ -3,3 +3,5 @@ node_js:
  - "0.10"
  - "0.9"
 services: mongodb
+before_script:
+ - "npm i -g jasmine-node"
