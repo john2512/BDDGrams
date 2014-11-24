@@ -1,7 +1,7 @@
 {
   "name": "BDDGrams",
   "version": "0.0.1",
-  "description": "A electronic parts database",
+  "description": "An electronic parts database",
   "main": "app.js",
   "dependencies": {
     "mongoose": "^3.8.19",
@@ -14,6 +14,6 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "jasmine-node test\api_spec.js"
+    "test": "jasmine-node test/api_spec.js"
   }
 }
