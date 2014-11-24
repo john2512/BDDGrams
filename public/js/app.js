@@ -4,7 +4,7 @@ var options = {
     base_url: 'http://localhost:3000'
   }
 };
-var app = angular.module('BDDGramsApp', ['ngRoute']);
+var app = angular.module('BDDGramsApp', []);
 
 app.factory('AuthenticationService', function () {
   'use strict';
