@@ -3,8 +3,8 @@ var carac = mongoose.model('Carac');
 
 module.exports = function (app) {
 
-	app.get('/carac', function(req, res, next){
-		carac.find({}, function(err, partType){
+	app.get('/carac', function (req, res, next){
+		carac.find({}, function (err, carac){
 			if (err){
 				return next(err);
 			}
@@ -13,8 +13,8 @@ module.exports = function (app) {
 	});
 
 
-	app.post('/carac', function(req, res, next){
-		var caraceInst = new carac();
+	app.post('/carac', function (req, res, next){
+		var caracInst = new carac();
 		caracInst._id = null;
 		caracInst.name = req.body.name;
 
@@ -27,7 +27,7 @@ module.exports = function (app) {
 	});
 
 
-	app.put('/carac/:id', function(req, res, next){
+	app.put('/carac/:id', function (req, res, next){
 		var id = req.param('id');
 		query = carac.findById(id);
 
@@ -49,14 +49,14 @@ module.exports = function (app) {
   });
 
 
-	app.delete('/partType/:id', function (req, res, next) {
+	app.delete('/carac/:id', function (req, res, next) {
     var id = req.param('id');
 
-    partType.findById(id, function (err, partType) {
+    carac.findById(id, function (err, carac) {
       if (err) {
         return next(err);
       }
-      partType.remove(function (err) {
+      carac.remove(function (err) {
         if (err) {
           return next(err);
         }
