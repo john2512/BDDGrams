@@ -15,7 +15,6 @@ module.exports = function (app) {
 
 	app.post('/partType', function(req, res, next){
 		var partTypeInst = new partType();
-		partTypeInst._id = null;
 		partTypeInst.name = req.body.name;
 
 		partTypeInst.save(function (err, partType) {
