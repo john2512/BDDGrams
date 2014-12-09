@@ -66,5 +66,3 @@ frisby.create('Get the /locations route')
     '__v': Number
   })
   .toss();
-
-

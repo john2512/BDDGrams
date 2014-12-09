@@ -1,37 +1,37 @@
+/*jslint node: true*/
 var mongoose = require('mongoose');
-var carac = mongoose.model('Carac');
+var Carac = mongoose.model('Carac');
 
 module.exports = function (app) {
-
-	app.get('/carac', function (req, res, next){
-		carac.find({}, function (err, carac){
-			if (err){
-				return next(err);
-			}
-			return res.json(carac);
-		});
-	});
-
-
-	app.post('/carac', function (req, res, next){
-		var caracInst = new carac();
-		caracInst._id = null;
-		caracInst.name = req.body.name;
-
-		caracInst.save(function (err, carac) {
+  'use strict';
+  app.get('/carac', function (req, res, next) {
+    Carac.find({}, function (err, carac) {
       if (err) {
         return next(err);
       }
       return res.json(carac);
-	    });
-	});
+    });
+  });
 
 
-	app.put('/carac/:id', function (req, res, next){
-		var id = req.param('id');
-		query = carac.findById(id);
+  app.post('/carac', function (req, res, next) {
+    var caracInst = new Carac();
+    caracInst.name = req.body.name;
 
-		 query.exec(function (err, carac) {
+    caracInst.save(function (err, carac) {
+      if (err) {
+        return next(err);
+      }
+      return res.json(carac);
+    });
+  });
+
+
+  app.put('/carac/:id', function (req, res, next) {
+    var id = req.param('id'),
+      query = Carac.findById(id);
+
+    query.exec(function (err, carac) {
       if (err) {
         return next(err);
       }
@@ -49,10 +49,10 @@ module.exports = function (app) {
   });
 
 
-	app.delete('/carac/:id', function (req, res, next) {
+  app.del('/carac/:id', function (req, res, next) {
     var id = req.param('id');
 
-    carac.findById(id, function (err, carac) {
+    Carac.findById(id, function (err, carac) {
       if (err) {
         return next(err);
       }
