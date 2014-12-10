@@ -15,6 +15,7 @@ module.exports = function (app) {
   stokageLocation(app);
   partType(app);
   carac(app);
+  part(app);
   // error handlers
   errors(app);
 };

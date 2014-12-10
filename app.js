@@ -21,6 +21,7 @@ mongoose.connect('mongodb://localhost/BDDGrams', function (err) {
   /*jslint nomen: false*/
   middleware(app);
   routes(app);
+  
 
   app.listen(3000, function () {
     console.log('now listening on http://localhost:3000');

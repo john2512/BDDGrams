@@ -21,8 +21,8 @@ var schema = mongoose.Schema({
     caracName: {type: String, trim: true},
     value: {type: String, trim: true}
   }],
-  created: { type: Date, required: true},
-  modified: {type: Date, required: true}
+  created: { type: Date, required: false},
+  modified: {type: Date, required: false}
 });
 
 
