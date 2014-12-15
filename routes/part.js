@@ -1,59 +1,53 @@
+/*jslint node: true*/
 var mongoose = require('mongoose');
-var part = mongoose.model('Part');
+var Part = mongoose.model('Part');
 
 module.exports = function (app) {
 
-app.get = ('/part', function(req, res, next){
-	part.find({}, function (err, part){
-		if (err){
-			return next(err);
-		}
-		return res.json(part);
-	});
-});
-
-app.post('/part', function (req, res, next){
-	var partInst = new part();
-	partInst._id = null;
-	partInst.name = req.body.name;
-	partInst.partType.name = req.body.partType.name;
-	partInst.partNumber.name = req.body.partNumber.name;
-	partInst.partNumber.value = req.body.partNumber.value;
-	partInst.storageLocation.location =  req.body.storageLocation.location;
-	partInst.storageLocation.quantity =  req.body.storageLocation.quantity;
-	partInst.carac.name =  req.body.carac.name;
-	partInst.carac.value =  req.body.carac.value;
-
-	partInst.save(function (err, partType) {
+  app.get('/part', function (req, res, next) {
+    Part.find({}, function (err, part) {
       if (err) {
         return next(err);
       }
       return res.json(part);
-	    });
-	});
+    });
+  });
 
-})
 
-app.put('/part/:id', function(req, res, next){
-		var id = req.param('id');
-		query = part.findById(id);
+  app.post('/part', function (req, res, next) {
+    var partInst = new Part();
+    partInst.name = req.body.name;
+    partInst.partType = req.body.partType;
+    partInst.partNumber = req.body.partNumberName;
+    partInst.storageLocation = req.body.storageLocation;
+    partInst.caracs = req.body.caracName;
 
-		 query.exec(function (err, part) {
+    partInst.save(function (err, part) {
       if (err) {
         return next(err);
       }
-      if (!partType) {
+      return res.json(part);
+    });
+  });
+
+
+  app.put('/part/:id', function (req, res, next) {
+    var id = req.param('id'),
+      query = Part.findById(id);
+
+    query.exec(function (err, part) {
+      if (err) {
+        return next(err);
+      }
+      if (!part) {
         return next(); // 404
       }
-	partInst.name = req.body.name;
-	partInst.partType.name = req.body.partType.name;
-	partInst.partNumber.name = req.body.partNumber.name;
-	partInst.partNumber.value = req.body.partNumber.value;
-	partInst.storageLocation.location =  req.body.storageLocation.location;
-	partInst.storageLocation.quantity =  req.body.storageLocation.quantity;
-	partInst.carac.name =  req.body.carac.name;
-	partInst.carac.value =  req.body.carac.value;
-      partType.save(function (err,  part) {
+      part.name = req.body.name;
+      part.partType = req.body.partType;
+      part.partNumber = req.body.partNumberName;
+      part.storageLocation = req.body.storageLocation;
+      part.caracs = req.body.caracName;
+      part.save(function (err,  part) {
         if (err) {
           return next(err);
         }
@@ -63,10 +57,10 @@ app.put('/part/:id', function(req, res, next){
   });
 
 
-	app.delete('/part/:id', function (req, res, next) {
+  app.del('/part/:id', function (req, res, next) {
     var id = req.param('id');
 
-    part.findById(id, function (err, part) {
+    Part.findById(id, function (err, part) {
       if (err) {
         return next(err);
       }
