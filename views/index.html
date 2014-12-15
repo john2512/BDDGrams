@@ -1,24 +1,284 @@
-<!-- views/index.html -->
-
-<!DOCTYPE html>
-<html lang="en" ng-app>
+<!doctype html>
+<html>
   <head>
-    <% include ./partials/head.html %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Hans BDD</title>
+
+    <link href="/css/application.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="/js/application.js" type="text/javascript"></script>
   </head>
   <body>
+    <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Hans BDD</a>
 
-    <% include ./partials/header.html %>
 
-    <div class="container-fluid">
-      <div class="row">
-        <% include ./partials/navbar.html %>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
+          <span class="sr-only">Toggle Side Navigation</span>
+          <i class="icon-th-list"></i>
+        </button>
 
-        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-top">
+          <span class="sr-only">Toggle Top Navigation</span>
+          <i class="icon-align-justify"></i>
+        </button>
       </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-collapse-top">
+        <div class="navbar-right">
+          <!--top search bar -->
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="search-query animated" placeholder="Search">
+              <i class="icon-search"></i>
+            </div>
+          </form>
+          <!--top profil bar -->
+          <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle dropdown" data-toggle="dropdown">
+                <span>
+                   <span>John Smith <i class="icon-caret-down"></i></span>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+
+                <!-- the first element is the one with the big avatar, add a with-image class to it -->
+
+                <li class="with-image">
+                  <span>John Smith</span>
+                </li>
+
+                <li class="divider"></li>
+
+                <li><a href="#"><i class="icon-user"></i> <span>Profile</span></a></li>
+                <li><a href="#"><i class="icon-cog"></i> <span>Settings</span></a></li>
+                <li><a href="#"><i class="icon-off"></i> <span>Logout</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </nav>
+    <div class="sidebar-background">
+      <div class="primary-sidebar-background"></div>
     </div>
 
-    <% include ./partials/footer.html %>
+    <div class="primary-sidebar">
+
+      <!-- Main nav -->
+      <ul class="nav navbar-collapse collapse navbar-collapse-primary">
+        <li class="active">
+          <span class="glow"></span>
+          <a href="dashboard.html">
+            <i class="icon-dashboard icon-2x"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="dark-nav ">
+          <span class="glow"></span>
+          <a class="accordion-toggle collapsed " data-toggle="collapse" href="#yJ6h3Npe7C">
+            <i class="icon-beaker icon-2x"></i>
+            <span>
+              UI Lab
+              <i class="icon-caret-down"></i>
+            </span>
+          </a>
+
+          <ul id="yJ6h3Npe7C" class="collapse ">
+
+            <li class="">
+              <a href="../ui_lab/buttons.html">
+                <i class="icon-hand-up"></i> Buttons
+              </a>
+            </li>
+
+            <li class="">
+              <a href="../ui_lab/general.html">
+                <i class="icon-beaker"></i> General elements
+              </a>
+            </li>
+
+            <li class="">
+              <a href="../ui_lab/icons.html">
+                <i class="icon-info-sign"></i> Icons
+              </a>
+            </li>
+
+            <li class="">
+              <a href="../ui_lab/grid.html">
+                <i class="icon-th-large"></i> Grid
+              </a>
+            </li>
+
+            <li class="">
+              <a href="../ui_lab/tables.html">
+                <i class="icon-table"></i> Tables
+              </a>
+            </li>
+
+            <li class="">
+              <a href="../ui_lab/widgets.html">
+                <i class="icon-plus-sign-alt"></i> Widgets
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+        <li class="">
+          <span class="glow"></span>
+          <a href="../forms/forms.html">
+            <i class="icon-edit icon-2x"></i>
+            <span>Forms</span>
+          </a>
+        </li>
+        <li class="">
+          <span class="glow"></span>
+          <a href="../charts/charts.html">
+            <i class="icon-bar-chart icon-2x"></i>
+            <span>Charts</span>
+          </a>
+        </li>
+        <li class="dark-nav ">
+          <span class="glow"></span>
+          <a class="accordion-toggle collapsed " data-toggle="collapse" href="#WLGsdJPav9">
+            <i class="icon-link icon-2x"></i>
+            <span>
+              Others
+              <i class="icon-caret-down"></i>
+            </span>
+          </a>
+          <ul id="WLGsdJPav9" class="collapse ">
+            <li class="">
+              <a href="../other/wizard.html">
+                <i class="icon-magic"></i> Wizard
+              </a>
+            </li>
+            <li class="">
+              <a href="../other/login.html">
+                <i class="icon-user"></i> Login Page
+              </a>
+            </li>
+            <li class="">
+              <a href="../other/sign_up.html">
+                <i class="icon-user"></i> Sign Up Page
+              </a>
+            </li>
+            <li class="">
+              <a href="../other/full_calendar.html">
+                <i class="icon-calendar"></i> Full Calendar
+              </a>
+            </li>
+            <li class="">
+              <a href="../other/error404.html">
+                <i class="icon-ban-circle"></i> Error 404 page
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <!--Page Title-->
+      <div class="container">
+        <div class="row">
+
+          <div class="area-top clearfix">
+            <div class="pull-left header">
+              <h3 class="title">
+                <i class="icon-dashboard"></i>
+                Dashboard
+              </h3>
+              <h5>
+                <span>
+                  A subtitle can go here
+                </span>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-3">
+            <!-- find me in partials/action_nav_normal -->
+
+            <!--big normal buttons-->
+            <div class="action-nav-normal">
+
+              <div class="row action-nav-row">
+                <div class="col-sm-6 action-nav-button">
+                  <a href="#" title="New Project">
+                    <i class="icon-wrench"></i>
+                    <span>Part type</span>
+                  </a>
+                </div>
+
+                <div class="col-sm-6 action-nav-button">
+                  <a href="#" title="Messages">
+                    <i class="icon-map-marker"></i>
+                    <span>Locations</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="row action-nav-row">
+                <div class="col-sm-6 action-nav-button">
+                  <a href="#" title="Files">
+                    <i class="icon-file-alt"></i>
+                    <span>Rapports</span>
+                  </a>
+                </div>
+
+                <div class="col-sm-6 action-nav-button">
+                  <a href="#" title="Users">
+                    <i class="icon-user"></i>
+                    <span>Users</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-9">
+            <!-- find me in partials/big_chart -->
+
+            <div class="box">
+              <div class="box-header">
+                <div class="title">Users</div>
+                <ul class="box-toolbar">
+                  <li class="toolbar-link">
+                    <a href="#" data-toggle="dropdown"><i class="icon-cog"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#"><i class="icon-plus-sign"></i> Add</a></li>
+                      <li><a href="#"><i class="icon-remove-sign"></i> Remove</a></li>
+                      <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
 
   </body>
 </html>

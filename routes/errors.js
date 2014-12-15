@@ -7,7 +7,7 @@ module.exports = function (app) {
     res.status(404);
 
     if (req.accepts('html')) {
-      return res.send("<h2>I'm sorry, I couldn't find that page.</h2>");
+      return res.render('404.html');
     }
 
     if (req.accepts('json')) {

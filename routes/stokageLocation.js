@@ -18,10 +18,7 @@ module.exports = function (app) {
   //This is for add a location to the DB
   app.post('/locations', function (req, res, next) {
     var locationInst = new StokageLocation();
-    locationInst._id = null;
     locationInst.location = req.body.location;
-    locationInst.created = null;
-    locationInst.modified = null;
 
     locationInst.save(function (err, location) {
       if (err) {
