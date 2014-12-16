@@ -1,4 +1,4 @@
-/*jslint node: true, sloppy: true*/
+/*jslint node: true, nomen: true, sloppy: true*/
 var mongoose = require('mongoose');
 var express = require('express');
 
@@ -16,11 +16,10 @@ mongoose.connect('mongodb://localhost/BDDGrams', function (err) {
     throw err;
   }
   var app = express();
-  /*jslint nomen: true*/
   app.use(express.static(__dirname + '/public'));
-  /*jslint nomen: false*/
   middleware(app);
   routes(app);
+
 
   app.listen(3000, function () {
     console.log('now listening on http://localhost:3000');

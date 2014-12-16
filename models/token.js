@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 var schema = mongoose.Schema({
   username: {type: String, required: true, index: {unique: true}},
   token: {type: String, required: false},
-  createdAt: {type: Date, required: false, expires: '60'}
+  createdAt: {type: Date, required: false, expires: '12h'}
 });
 
 //Generate a TOKEN_LENGTH sized token in hexa for the authentication.

@@ -51,7 +51,7 @@ module.exports = function (app) {
   });
 
   //This is for remove a location in the DB
-  app.delete('/locations/:id', function (req, res, next) {
+  app.del('/locations/:id', function (req, res, next) {
     var id = req.param('id');
 
     StokageLocation.findById(id, function (err, stokageLocation) {
