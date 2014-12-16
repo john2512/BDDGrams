@@ -41,4 +41,14 @@ module.exports = function (app) {
       return res.status(200).end();
     });
   });
+
+  app.post('/user/logout', function (req, res, next) {
+    var tokenToExpire = req.body.token;
+    Token.findOneAndRemove({token: tokenToExpire}, function (err, token) {
+      if (err) {
+        return next(err);
+      }
+      return res.status(200).end();
+    });
+  });
 };

@@ -1,4 +1,4 @@
-/*jslint node: true, sloppy: true*/
+/*jslint node: true, nomen: true, sloppy: true*/
 var frisby = require('frisby');
 var crypto = require('crypto');
 
