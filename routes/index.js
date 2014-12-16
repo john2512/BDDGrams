@@ -2,7 +2,8 @@
 var errors = require('./errors');
 var stokageLocation = require('./stokageLocation');
 var partType = require('./partType');
-var carac = require('./carac')
+var carac = require('./carac');
+var user = require('./user');
 var mongoose = require('mongoose');
 
 module.exports = function (app) {
@@ -15,6 +16,7 @@ module.exports = function (app) {
   stokageLocation(app);
   partType(app);
   carac(app);
+  user(app);
   // error handlers
   errors(app);
 };

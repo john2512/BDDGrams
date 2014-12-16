@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "An electronic parts database",
   "main": "app.js",
+  "private": "true",
   "dependencies": {
     "mongoose": "^3.8.19",
     "express": "^4.10.2",
@@ -10,10 +11,11 @@
     "morgan": "^1.5.0",
     "ejs": "^1.0.0",
     "body-parser": "^1.9.2",
-    "frisby": "^0.8.3"
+    "frisby": "^0.8.3",
+    "bcryptjs": "^2.1.0"
   },
   "scripts": {
-    "preinstall": "bower install",
+    "postinstall": "bower install",
     "start": "node app.js",
     "test": "jasmine-node test/api_spec.js"
   }
