@@ -1,5 +1,6 @@
 /*jslint node: true*/
 var mongoose = require('mongoose');
+
 var Part = mongoose.model('Part');
 
 module.exports = function (app) {
@@ -18,7 +19,7 @@ module.exports = function (app) {
     var partInst = new Part();
     partInst.name = req.body.name;
     partInst.partType = req.body.partType;
-    partInst.partNumber = req.body.partNumberName;
+    partInst.partNumber = req.body.partNumber;
     partInst.storageLocation = req.body.storageLocation;
     partInst.caracs = req.body.caracName;
 
